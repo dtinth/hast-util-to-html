@@ -130,10 +130,10 @@ test('`element` attributes', async (t) => {
 
     await t.test('should serialize unknowns set to objects', async function () {
       assert.deepEqual(
+        // @ts-expect-error: check how the runtime handles a `toString` method on an object.
         toHtml({
           type: 'element',
           tagName: 'i',
-          // @ts-expect-error: check how the runtime handles a `toString` method on an object.
           properties: {unknown: {toString}},
           children: []
         }),
@@ -531,10 +531,10 @@ test('`element` attributes', async (t) => {
       'should serialize known numbers set to an object',
       async function () {
         assert.deepEqual(
+          // @ts-expect-error: check how the runtime handles a `toString` method on an object.
           toHtml({
             type: 'element',
             tagName: 'i',
-            // @ts-expect-error: check how the runtime handles a `toString` method on an object.
             properties: {cols: {toString}},
             children: []
           }),
@@ -577,10 +577,10 @@ test('`element` attributes', async (t) => {
       'should serialize known numbers set to an array of booleans',
       async function () {
         assert.deepEqual(
+          // @ts-expect-error: check how the runtime handles booleans in an array.
           toHtml({
             type: 'element',
             tagName: 'i',
-            // @ts-expect-error: check how the runtime handles booleans in an array.
             properties: {cols: [true, false]},
             children: []
           }),
@@ -717,10 +717,10 @@ test('`element` attributes', async (t) => {
         'should serialize known space-separated lists set to an object',
         async function () {
           assert.deepEqual(
+            // @ts-expect-error: check how the runtime handles a `toString` method on an object.
             toHtml({
               type: 'element',
               tagName: 'i',
-              // @ts-expect-error: check how the runtime handles a `toString` method on an object.
               properties: {className: {toString}},
               children: []
             }),
@@ -763,10 +763,10 @@ test('`element` attributes', async (t) => {
         'should serialize known space-separated lists set to an array of booleans',
         async function () {
           assert.deepEqual(
+            // @ts-expect-error: check how the runtime handles booleans in an array.
             toHtml({
               type: 'element',
               tagName: 'i',
-              // @ts-expect-error: check how the runtime handles booleans in an array.
               properties: {className: [true, false]},
               children: []
             }),
@@ -889,10 +889,10 @@ test('`element` attributes', async (t) => {
         'should serialize known comma-separated lists set to an object',
         async function () {
           assert.deepEqual(
+            // @ts-expect-error: check how the runtime handles a `toString` method on an object.
             toHtml({
               type: 'element',
               tagName: 'i',
-              // @ts-expect-error: check how the runtime handles a `toString` method on an object.
               properties: {accept: {toString}},
               children: []
             }),
@@ -935,10 +935,10 @@ test('`element` attributes', async (t) => {
         'should serialize known comma-separated lists set to an array of booleans',
         async function () {
           assert.deepEqual(
+            // @ts-expect-error: check how the runtime handles booleans in an array.
             toHtml({
               type: 'element',
               tagName: 'i',
-              // @ts-expect-error: check how the runtime handles booleans in an array.
               properties: {accept: [true, false]},
               children: []
             }),
@@ -1056,10 +1056,10 @@ test('`element` attributes', async (t) => {
       'should serialize known normals set to an object',
       async function () {
         assert.deepEqual(
+          // @ts-expect-error: check how the runtime handles a `toString` method on an object.
           toHtml({
             type: 'element',
             tagName: 'i',
-            // @ts-expect-error: check how the runtime handles a `toString` method on an object.
             properties: {id: {toString}},
             children: []
           }),
@@ -1102,10 +1102,10 @@ test('`element` attributes', async (t) => {
       'should serialize known normals set to an array of booleans as a space-separated list',
       async function () {
         assert.deepEqual(
+          // @ts-expect-error: check how the runtime handles booleans in an array.
           toHtml({
             type: 'element',
             tagName: 'i',
-            // @ts-expect-error: check how the runtime handles booleans in an array.
             properties: {id: [true, false]},
             children: []
           }),
@@ -1252,10 +1252,10 @@ test('`element` attributes', async (t) => {
       'should serialize data properties set to an object',
       async function () {
         assert.deepEqual(
+          // @ts-expect-error: check how the runtime handles a `toString` method on an object.
           toHtml({
             type: 'element',
             tagName: 'i',
-            // @ts-expect-error: check how the runtime handles a `toString` method on an object.
             properties: {dataId: {toString}},
             children: []
           }),
@@ -1298,10 +1298,10 @@ test('`element` attributes', async (t) => {
       'should serialize data properties set to an array of booleans as a space-separated list',
       async function () {
         assert.deepEqual(
+          // @ts-expect-error: check how the runtime handles booleans in an array.
           toHtml({
             type: 'element',
             tagName: 'i',
-            // @ts-expect-error: check how the runtime handles booleans in an array.
             properties: {dataId: [true, false]},
             children: []
           }),
