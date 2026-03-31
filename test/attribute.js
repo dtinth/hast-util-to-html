@@ -1535,15 +1535,18 @@ test('`element` attributes', async (t) => {
       }, /Invalid quote ```, expected `'` or `"`/)
     })
 
-    await t.test('should throw on invalid attribute whitespace', async function () {
-      assert.throws(function () {
-        toHtml(
-          h('img'),
-          // @ts-expect-error: check how the runtime handles an incorrect `attributeSpace`
-          {attributeSpace: '-'}
-        )
-      }, /Invalid attributeSpace `-`, expected `\\t`, `\\n`, `\\f`, `\\r`, or ` `/)
-    })
+    await t.test(
+      'should throw on invalid attribute whitespace',
+      async function () {
+        assert.throws(function () {
+          toHtml(
+            h('img'),
+            // @ts-expect-error: check how the runtime handles an incorrect `attributeSpace`
+            {attributeSpace: '-'}
+          )
+        }, /Invalid attributeSpace `-`, expected `\\t`, `\\n`, `\\f`, `\\r`, or ` `/)
+      }
+    )
   })
 
   await t.test('should support `quoteSmart`', async function (t) {

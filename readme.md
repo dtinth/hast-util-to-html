@@ -441,9 +441,9 @@ or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[api-character-references]: #characterreferences
-
 [api-attribute-space]: #attributespace
+
+[api-character-references]: #characterreferences
 
 [api-options]: #options
 
