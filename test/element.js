@@ -79,6 +79,21 @@ test('`element`', async function (t) {
     }
   )
 
+  await t.test(
+    'should use custom attribute whitespace before self-closing slashes',
+    async function () {
+      assert.deepEqual(
+        toHtml(h('img', {src: 'index.jpg'}), {
+          preferUnquoted: true,
+          closeSelfClosing: true,
+          tightSelfClosing: true,
+          attributeSpace: '\n'
+        }),
+        '<img\nsrc=index.jpg\n/>'
+      )
+    }
+  )
+
   await t.test('should support `<template>`s content', async function () {
     assert.deepEqual(
       toHtml({
