@@ -1372,6 +1372,24 @@ test('`element` attributes', async (t) => {
         )
       }
     )
+
+    await t.test(
+      'should support custom attribute whitespace',
+      async function () {
+        assert.deepEqual(
+          toHtml(
+            {
+              type: 'element',
+              tagName: 'i',
+              properties: {title: 'a', id: 'b'},
+              children: []
+            },
+            {attributeSpace: '\n'}
+          ),
+          '<i\ntitle="a"\nid="b"></i>'
+        )
+      }
+    )
   })
 
   await t.test('should support `tightCommaSeparatedLists`', async function (t) {
@@ -1515,6 +1533,16 @@ test('`element` attributes', async (t) => {
           {quote: '`'}
         )
       }, /Invalid quote ```, expected `'` or `"`/)
+    })
+
+    await t.test('should throw on invalid attribute whitespace', async function () {
+      assert.throws(function () {
+        toHtml(
+          h('img'),
+          // @ts-expect-error: check how the runtime handles an incorrect `attributeSpace`
+          {attributeSpace: '-'}
+        )
+      }, /Invalid attributeSpace `-`, expected `\\t`, `\\n`, `\\f`, `\\r`, or ` `/)
     })
   })
 

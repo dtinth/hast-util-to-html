@@ -111,6 +111,19 @@ test('svg', async function (t) {
   )
 
   await t.test(
+    'should support custom attribute whitespace',
+    async function () {
+      assert.deepEqual(
+        toHtml(s('text', {className: ['a', 'b'], title: 'c d'}, 'bravo'), {
+          space: 'svg',
+          attributeSpace: '\n'
+        }),
+        '<text\nclass="a b"\ntitle="c d">bravo</text>'
+      )
+    }
+  )
+
+  await t.test(
     'should serialize space-separated attributes',
     async function () {
       assert.deepEqual(

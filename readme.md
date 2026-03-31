@@ -16,6 +16,7 @@
 * [API](#api)
   * [`toHtml(tree[, options])`](#tohtmltree-options)
   * [`CharacterReferences`](#characterreferences)
+  * [`AttributeSpace`](#attributespace)
   * [`Options`](#options)
   * [`Quote`](#quote-1)
   * [`Space`](#space-1)
@@ -149,6 +150,16 @@ if that results in less bytes
 > ⚠️ **Note**:
 > `useNamedReferences` can be omitted when using `useShortestReferences`.
 
+### `AttributeSpace`
+
+HTML whitespace character to use between attributes (TypeScript type).
+
+###### Type
+
+```ts
+type AttributeSpace = '\t' | '\n' | '\f' | '\r' | ' '
+```
+
 ### `Options`
 
 Configuration (TypeScript type).
@@ -203,6 +214,12 @@ Use “bogus comments” instead of comments to save byes:
 
 Configure how to serialize character references
 ([`CharacterReferences`][api-character-references], optional).
+
+###### `attributeSpace`
+
+Whitespace character to use when separating attributes and when a self-closing
+slash needs whitespace
+([`AttributeSpace`][api-attribute-space], default: `' '`).
 
 ###### `closeEmptyElements`
 
@@ -376,6 +393,7 @@ which is also followed by browsers such as Chrome and Firefox.
 This package is fully typed with [TypeScript][].
 It exports the additional types
 [`CharacterReferences`][api-character-references],
+[`AttributeSpace`][api-attribute-space],
 [`Options`][api-options],
 [`Quote`][api-quote],
 and
@@ -424,6 +442,8 @@ or community you agree to abide by its terms.
 <!-- Definitions -->
 
 [api-character-references]: #characterreferences
+
+[api-attribute-space]: #attributespace
 
 [api-options]: #options
 
